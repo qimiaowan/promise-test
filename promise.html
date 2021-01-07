@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./aPromise.js"></script>
+  <script>
+    // const a = new aPromise(function(resolve, reject) {
+    //   resolve(1)
+    // })
+    // const b = new aPromise(function(resolve, reject) {
+    //   resolve(2)
+    // })
+    // const c = new Promise(function(resolve, reject) {
+    //   resolve(3)
+    // })
+    // const d = new aPromise(function(resolve, reject) {
+    //   resolve(4)
+    // })
+    // c.then((res)=>{
+    //   console.log(res);
+    //   return new Promise((resolve)=>{
+    //     resolve(c)
+    //   })
+    // }).then(res=>{
+    //   console.log(res);
+    // }).catch(rej=>{
+    //   console.log(rej);
+    // })
+
+    // a.then(res=>{
+    //   console.log(res);
+    // }).catch(rej=>{
+    //   console.log(rej);
+    // })
+//     c.then(res=>{
+//       console.log(res)
+//       return 1111
+//     }).catch(rej=>{
+//     console.log('s',rej)
+//     return 2
+// }).finally(f=>{
+//   console.log(14324);
+//   return 3
+// }).then(r=>console.log(r))
+
+//     aPromise.allSettled([a,b,c,d]).then(res=>{
+//       console.log(res);
+//     },rej=>{
+//       console.log(rej);
+//     })
+
+
+
+
+
+
+
+
+
+
+    const oPromise = new Promise(function(resolve, reject) {
+      resolve(15345353)
+      // throw new Error('fdaa')
+    })
+    const t = oPromise.then((res)=>{
+      console.log("res", res);
+      oPromise.then((res)=>{
+        console.log(res);
+      })
+      return 2
+    },(rej) => {
+      console.log(rej);
+      return new Promise(function(resolve, reject){
+        reject(t)
+      })
+    })
+    t.then(654343232323234).then(res=>{
+      console.log(res);
+    }, (rej)=>{
+      console.log(rej);
+    })
+    t.then((res)=>{
+      console.log(res);
+      return new Promise(function(resolve, reject) {
+        resolve(673121)
+    })
+    }, (rej)=>{
+      console.log(rej);
+      return 'ccfd'
+    }).then((r)=>{
+      console.log(r);
+      return new Promise((res, rej)=>{
+        setTimeout(()=>{
+          res(132423)
+        },1000)
+      })
+    }, (rej)=>{
+      console.log(rej);
+    }).then((r)=>{
+      console.log(r);
+    }, (rej)=>{
+      console.log(rej);
+    })
+    console.log('你发的');
+
+
+  </script>
+</body>
+</html>
